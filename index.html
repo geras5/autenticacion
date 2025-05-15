@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Iniciar Sesión</h2>
+        <form method="POST" action="login.php">
+                 <input type="text" name="username" placeholder="Usuario" required>
+                
+                 <input type="password" name="password" placeholder="Contraseña" required>
+
+                  <button type="submit">Entrar</button>
+                    
+        </form>
+        <a href="registro.html">¿No tienes cuenta? Regístrate</a>
+    </div>
+    <button class="mode-toggle" onclick="toggleTheme()">🌓</button>
+
+
+    <script>
+        function toggleTheme() {
+          const current = document.documentElement.getAttribute("data-theme");
+          document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+        }
+      
+        // Guardar preferencia en localStorage (opcional)
+        document.addEventListener("DOMContentLoaded", () => {
+          const saved = localStorage.getItem("theme");
+          if (saved) document.documentElement.setAttribute("data-theme", saved);
+        });
+      
+        function toggleTheme() {
+          const current = document.documentElement.getAttribute("data-theme") || "light";
+          const newTheme = current === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+        }
+      </script>
+</body>
+</html>
+
